@@ -2,6 +2,7 @@
 
 import { MenuContextProvider } from '@/context/MenuContext';
 import { ThemeProvider } from 'next-themes';
+
 import React, { useEffect, useState, ReactNode } from 'react';
 
 const Providers: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -16,11 +17,13 @@ const Providers: React.FC<{ children: ReactNode }> = ({ children }) => {
   }
 
   return (
-    <ThemeProvider attribute='class'>
-      <MenuContextProvider>
-        {children}
-      </MenuContextProvider>
-    </ThemeProvider>
+
+      <ThemeProvider attribute='class'>
+        <MenuContextProvider>
+          {children}
+        </MenuContextProvider>
+      </ThemeProvider>
+
   );
 };
 

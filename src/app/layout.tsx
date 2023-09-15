@@ -1,3 +1,5 @@
+
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -5,6 +7,10 @@ import Providers from './providers'
 import OffCanvas from '@/components/OffCanvas'
 import MobileMenuButton from '@/components/MobileMenuButton'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
+import Login from './log-in'
+import { ReduxProvider } from '@/redux/ReduxProvider'
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,11 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <Providers>
+      <ReduxProvider>
         <OffCanvas/>
         <ThemeSwitcher/>
         {children}
-      </Providers>
+        <Login/>
+      </ReduxProvider>
       </body>
     </html>
   )
